@@ -72,11 +72,11 @@ Users are able to use the following routes:
 - GET: View All User - localhost:3001/api/users
 - GET: View One User - localhost:3001/api/users/:userId
 - POST: Create A User - localhost:3001/api/users
-  ![sample create user body](/social-network-api/assets/images/createuser.png)
+  ![sample create user body](/assets/images/createuser.png)
 - PUT: Update A User - localhost:3001/api/users/:userId
-  ![sample update user](/social-network-api/assets/images/updateuser.png)
+  ![sample update user](/assets/images/updateuser.png)
 - DELETE: Remove A User - localhost:3001/api/users/:userId
-  ![Sample response from removing user](/social-network-api/assets/images/deleteuser.png). - when deleting a user, it will also delete the users corresponding thoughts, too.
+  ![Sample response from removing user](/assets/images/deleteuser.png). - when deleting a user, it will also delete the users corresponding thoughts, too.
 
 - POST: Add A Friend - localhost:3001/api/users/:userId/friends/:friendId
 - DELETE: Remove A Friend - localhost:3001/api/users/:userId/friends/:friendId
@@ -84,13 +84,13 @@ Users are able to use the following routes:
 - GET: View All Thoughts - localhost:3001/api/thoughts
 - GET: View One Thought - localhost:3001/api/thoughts/:thoughtId
 - POST: Create A Thought - localhost:3001/api/thoughts
-  ![sample create thought body](/social-network-api/assets/images/newthought.png)
+  ![sample create thought body](/assets/images/newthought.png)
 - PUT: Update A Thought - localhost:3001/api/thoughts/:thoughtId
-  ![sample update thought](/social-network-api/assets/images/updatethought.png)
+  ![sample update thought](/assets/images/updatethought.png)
 - DELETE: Remove A Thought - localhost:3001/api/thoughts/:thoughtId
 
 - POST: Add A Thought Reaction - localhost:3001/api/thoughts/:thoughtId/reactions
-  ![sample add reaction body](/social-network-api/assets/images/thoughtreaction.png)
+  ![sample add reaction body](/assets/images/thoughtreaction.png)
 - DELETE: Remove A Thought Reaction - localhost:3001/api/thoughts/:thoughtId/reactions/reactionId
 
 ## Credits
