@@ -72,7 +72,9 @@ Users are able to use the following routes:
 - GET: View All User - localhost:3001/api/users
 - GET: View One User - localhost:3001/api/users/:userId
 - POST: Create A User - localhost:3001/api/users
+
   ![sample create user body](/assets/images/createuser.png)
+
 - PUT: Update A User - localhost:3001/api/users/:userId
   ![sample update user](/assets/images/updateuser.png)
 
