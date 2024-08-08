@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const { formatDate } = require('../utils/helpers');
 
 const thoughtSchema = new Schema(
   {
@@ -32,29 +33,6 @@ const thoughtSchema = new Schema(
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
-
-function formatDate(createdAt) {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const day = createdAt.getDate();
-  const month = months[createdAt.getMonth()];
-  const year = createdAt.getFullYear();
-  const time = createdAt.toLocaleTimeString();
-
-  return month + ' ' + day + ', ' + year + ' at ' + time;
-}
 
 const Thought = model('thought', thoughtSchema);
 
