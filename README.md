@@ -76,7 +76,9 @@ Users are able to use the following routes:
 - PUT: Update A User - localhost:3001/api/users/:userId
   ![sample update user](/assets/images/updateuser.png)
 - DELETE: Remove A User - localhost:3001/api/users/:userId
-  ![Sample response from removing user](/assets/images/deleteuser.png). - when deleting a user, it will also delete the users corresponding thoughts, too.
+  ![Sample response from removing user](/assets/images/deleteuser.png).
+
+  - when deleting a user, it will also delete the users corresponding thoughts, too.
 
 - POST: Add A Friend - localhost:3001/api/users/:userId/friends/:friendId
 - DELETE: Remove A Friend - localhost:3001/api/users/:userId/friends/:friendId
