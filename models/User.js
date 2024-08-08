@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+// User Model
 const userSchema = new Schema(
   {
     username: {
@@ -12,6 +13,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      // Validator to ensure that emails for a user follow the correct pattern for an email.
       validate: {
         validator: function (check) {
           return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(check);
@@ -19,12 +21,14 @@ const userSchema = new Schema(
         message: (invalid) => `${invalid.value} is not a valid email!`,
       },
     },
+    // Referencing exisitng Thought model by id
     thoughts: [
       {
         type: Schema.Types.ObjectId,
         ref: 'thought',
       },
     ],
+    // Referencing itself (User model) by id
     friends: [
       {
         type: Schema.Types.ObjectId,
@@ -45,6 +49,7 @@ userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
+// Initializes User model
 const User = model('user', userSchema);
 
 module.exports = User;

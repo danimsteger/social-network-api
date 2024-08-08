@@ -1,7 +1,12 @@
 const { Schema, model } = require('mongoose');
+
+// Import reactionSchema to use in Thought model
 const reactionSchema = require('./Reaction');
+
+// Import formatDate function to properly format createdAt dates
 const { formatDate } = require('../utils/helpers');
 
+// Thought Model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
@@ -13,12 +18,14 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      // Getter to formatDate function
       get: formatDate,
     },
     username: {
       type: String,
       required: true,
     },
+    // Include reaction schema in Thought model
     reactions: [reactionSchema],
   },
   {
@@ -30,10 +37,12 @@ const thoughtSchema = new Schema(
   }
 );
 
+// Virtual to calculate the total number or reactions for each thought
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 
+// Initialize Thought model (Store it in the collection)
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;

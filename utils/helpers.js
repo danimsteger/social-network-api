@@ -1,3 +1,5 @@
+// formatDate function to format createdAt dates in thought and reaction schema
+
 module.exports = {
   formatDate(createdAt) {
     const months = [

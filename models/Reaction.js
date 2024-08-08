@@ -1,6 +1,8 @@
 const { Schema, Types } = require('mongoose');
+// Import formateDate helper to properly format timestamp
 const { formatDate } = require('../utils/helpers');
 
+// Reaction Schema - no model
 const reactionSchema = new Schema(
   {
     reactionId: {
@@ -19,6 +21,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      // Getter to formatDate function
       get: formatDate,
     },
   },
