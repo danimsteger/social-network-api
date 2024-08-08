@@ -26,7 +26,9 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.params.userId })
         .select('-__v')
-        .lean();
+        .lean()
+        .populate('thoughts')
+        .populate('friends');
 
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID!' });
@@ -67,7 +69,14 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID!' });
       }
-      res.json({ message: 'User successfully deleted' });
+
+      const deletedUsername = user.username;
+
+      const deletedThoughts = await Thought.deleteMany({
+        username: deletedUsername,
+      });
+
+      res.json({ message: 'User successfully deleted', deletedThoughts });
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);

@@ -6,6 +6,7 @@ module.exports = {
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
+
       return res.json(thoughts);
     } catch (err) {
       console.log(err);
