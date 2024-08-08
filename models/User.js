@@ -40,7 +40,7 @@ const userSchema = new Schema(
   }
 );
 
-// Creates virutal 'friendCount' to get the amount of friends in a users friend list
+// Creates virtual 'friendCount' to get the amount of friends in a users friend list
 userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
